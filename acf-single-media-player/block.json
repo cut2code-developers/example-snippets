@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "media-player",
+	"title": "Media Player",
+	"category": "theme_blocks",
+	"description": "Media Player",
+	"keywords": [ "single", "content" ],
+	"textdomain": "themeName",
+	"supports": {
+		"anchor": true,
+		"className": true,
+		"align": false,
+		"spacing": {
+			"padding": false,
+			"margin": [ "top", "bottom" ]
+		},
+		"jsx": true
+	},
+	"icon": "media-interactive",
+	"viewScript": [ "acf-single-media-player" ],
+	"editorScript": [ "acf", "acf-single-media-player" ],
+	"acf": {
+		"mode": "edit",
+		"renderTemplate": "index.php"
+	}
+}

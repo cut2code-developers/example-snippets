@@ -1,0 +1,32 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "acf/matter-tags",
+	"title": "Matter Tags",
+	"category": "theme_blocks",
+	"description": "Tags with Matter.js",
+	"keywords": [ "matter", "tag" ],
+	"textdomain": "themeName",
+	"supports": {
+		"anchor": true,
+		"className": true,
+		"align": false,
+		"color": {
+			"background": true,
+			"gradients": true,
+			"link": true,
+			"text": true
+		},
+		"spacing": {
+			"padding": [ "top", "bottom" ],
+			"margin": [ "top", "bottom" ]
+		}
+	},
+	"viewScript": ["matter", "acf-matter-tags" ],
+	"editorScript": ["acf", "matter", "acf-matter-tags" ],
+	"icon": "tag",
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "index.php"
+	}
+}

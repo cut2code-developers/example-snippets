@@ -1,0 +1,168 @@
+@import '__settings/init';
+
+.wp-block-acf-matter-tags {
+	max-width: none !important;
+}
+
+.matter-tags {
+	$block: &;
+
+	user-select: none;
+	pointer-events: none;
+
+	min-height: 100vh;
+	padding-top: vw(70, 135);
+	padding-bottom: $spacing--100;
+
+	position: relative;
+
+	text-align: center;
+	color: $color--white;
+
+	background-color: $color--primary-400;
+	background-image: url('/svg/mater-tags-bg-mobile.svg'), url('/svg/mater-tags-stars-mobile.svg');
+	background-repeat: repeat-x, no-repeat;
+	background-position: center top 75px, left 152px top 304px;
+	overflow: hidden;
+
+	@include media('>=lg') {
+		pointer-events: unset;
+
+		background-image: url('/svg/mater-tags-bg.svg'), url('/svg/mater-tags-stars.svg');
+		background-position: left 0 top 120px, left 32px top 180px;
+		background-size: auto, auto;
+	}
+	@include media('>=1900px') {
+		background-position: center top 120px, center top 180px;
+	}
+
+	&.active {
+		#{$block}__tags {
+			opacity: 1;
+		}
+
+		#{$block}__tag {
+			@include media('>=lg') {
+				opacity: 1;
+			}
+		}
+	}
+
+	#{$block} {
+		&__container {
+			max-width: $container-wide;
+			padding-right: rem($container-padding);
+			padding-left: rem($container-padding);
+
+			margin-right: auto;
+			margin-left: auto;
+		}
+
+		&__title,
+		&__description {
+			pointer-events: auto;
+
+			position: relative;
+			z-index: 1;
+		}
+
+		&__title {
+			font-weight: 500;
+
+			@include media('>=md') {
+				max-width: rem(1017);
+
+				margin-right: auto;
+				margin-bottom: rem(15);
+				margin-left: auto;
+
+				font-weight: 700;
+			}
+
+			&--desktop {
+				display: none;
+
+				@include media('>md') {
+					display: block;
+				}
+			}
+
+			&--mobile {
+				@include media('>md') {
+					display: none;
+				}
+			}
+		}
+
+		&__description {
+			margin-bottom: rem(20);
+
+			font-size: vw(12, 16);
+
+			@include media('>=md') {
+				max-width: rem(651);
+
+				margin-right: auto;
+				margin-bottom: rem(50);
+				margin-left: auto;
+			}
+		}
+
+		&__tags {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+
+			opacity: 0;
+		}
+
+		&__tag {
+			padding: rem(7) rem(20);
+
+			position: absolute;
+			z-index: 1;
+			top: 0;
+			left: 0;
+
+			font-family: $font-heading;
+			font-size: rem(24);
+			font-weight: 500;
+			line-height: 1.3;
+
+			border-radius: rem(100);
+			opacity: 0;
+
+			transition: opacity $transition;
+
+			@include media('>=md') {
+				padding: rem(17) rem(40);
+			}
+			@include media('<lg') {
+				pointer-events: auto;
+			}
+
+			&-title {
+				margin-top: 0;
+
+				font-size: rem(24);
+				text-align: center;
+
+				@include media('>=md') {
+					font-size: rem(32);
+				}
+			}
+
+			&:hover {
+				cursor: grab;
+			}
+		}
+	}
+
+	canvas {
+		pointer-events: none;
+
+		display: none;
+	}
+}
